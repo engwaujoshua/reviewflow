@@ -1,0 +1,300 @@
+/* =========================================
+   REVIEWFLOW COMPONENTS
+   ========================================= */
+
+.btn {
+    border: none;
+    border-radius: 9px;
+    padding: 11px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.btn-large {
+    padding: 14px 24px;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   PRICING COMPONENTS
+   ========================================= */
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.pricing-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card-popular {
+    border: 2px solid #2563eb;
+    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.12);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563eb;
+    color: #ffffff;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.pricing-header h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.pricing-header p {
+    color: #6b7280;
+    font-size: 14px;
+    min-height: 68px;
+}
+
+.price {
+    margin-top: 25px;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.price-amount {
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.price-period {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.request-limit {
+    color: #4b5563;
+    font-size: 13px;
+    margin: 8px 0 22px;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.pricing-features {
+    list-style: none;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.pricing-features li {
+    color: #4b5563;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+}
+
+
+
+/* =========================================
+   SIGNUP MODAL
+   ========================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.signup-modal {
+    position: relative;
+    width: min(480px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #111827;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.modal-logo {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 15px;
+    border-radius: 12px;
+    background: #2563eb;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.modal-header h2 {
+    font-size: 25px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.modal-header p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.selected-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.selected-plan span {
+    color: #4b5563;
+}
+
+.selected-plan strong {
+    color: #2563eb;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #6b7280;
+    font-size: 11px;
+}
+
+.form-disclaimer {
+    margin-top: 15px;
+    color: #9ca3af;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+@media (max-width: 500px) {
+
+    .signup-modal {
+        padding: 28px 20px;
+    }
+
+    .modal-header h2 {
+        font-size: 22px;
+    }
+
+}
