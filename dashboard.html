@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard - ReviewFlow</title>
+
+
+    <!-- Global Styles -->
+
+    <link
+        rel="stylesheet"
+        href="styles/global.css"
+    >
+
+
+    <!-- Component Styles -->
+
+    <link
+        rel="stylesheet"
+        href="styles/components.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     APP
+     ========================================= -->
+
+<div class="dashboard-app">
+
+
+    <!-- =====================================
+         SIDEBAR
+         ===================================== -->
+
+    <aside class="dashboard-sidebar">
+
+
+        <!-- Logo -->
+
+        <div class="sidebar-logo">
+
+            <a href="index.html">
+
+                <div class="logo-mark">
+                    R
+                </div>
+
+                <span>
+                    ReviewFlow
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-navigation">
+
+
+            <a
+                href="#"
+                class="sidebar-link active"
+            >
+
+                <span class="sidebar-icon">
+                    ▦
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="#clients"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    👥
+                </span>
+
+                <span>
+                    Clients
+                </span>
+
+            </a>
+
+
+            <a
+                href="#analytics"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    ▥
+                </span>
+
+                <span>
+                    Analytics
+                </span>
+
+            </a>
+
+
+            <a
+                href="#settings"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    ⚙
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+
+            <div class="sidebar-plan">
+
+                <div class="sidebar-plan-title">
+                    Current Plan
+                </div>
+
+                <strong id="sidebarPlan">
+                    Starter
+                </strong>
+
+                <div
+                    id="sidebarUsage"
+                    class="sidebar-usage"
+                >
+                    0 / 50 requests
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="logoutButton"
+                class="sidebar-logout"
+            >
+
+                Logout
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================
+         MAIN CONTENT
+         ===================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================
+             TOP HEADER
+             ================================= -->
+
+        <header class="dashboard-header">
+
+
+            <div>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Welcome back,
+                    <strong id="dashboardUserName">
+                        there
+                    </strong>.
+                    Here's what's happening with your reviews.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="headerAddClient"
+                class="btn btn-primary"
+            >
+
+                + Add Client
+
+            </button>
+
+
+        </header>
+
+
+        <!-- =================================
+             METRICS
+             ================================= -->
+
+        <section
+            class="metrics-grid"
+            aria-label="Review metrics"
+        >
+
+
+            <!-- Requests -->
+
+            <div class="metric-card">
+
+                <div class="metric-card-top">
+
+                    <span class="metric-label">
+                        Requests Sent
+                    </span>
+
+                    <span class="metric-icon">
+                        ✉
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="requestsSent"
+                    class="metric-value"
+                >
+                    0
+                </div>
+
+
+                <div class="metric-description">
+                    Review requests sent
+                </div>
+
+            </div>
+
+
+            <!-- Reviews -->
+
+            <div class="metric-card">
+
+                <div class="metric-card-top">
+
+                    <span class="metric-label">
+                        Reviews Received
+                    </span>
+
+                    <span class="metric-icon">
+                        ★
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="reviewsReceived"
+                    class="metric-value"
+                >
+                    0
+                </div>
+
+
+                <div class="metric-description">
+                    Customers who responded
+                </div>
+
+            </div>
+
+
+            <!-- Response Rate -->
+
+            <div class="metric-card">
+
+                <div class="metric-card-top">
+
+                    <span class="metric-label">
+                        Response Rate
+                    </span>
+
+                    <span class="metric-icon">
+                        %
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="responseRate"
+                    class="metric-value"
+                >
+                    0%
+                </div>
+
+
+                <div class="metric-description">
+                    Requests converted to reviews
+                </div>
+
+            </div>
+
+
+            <!-- Revenue -->
+
+            <div class="metric-card">
+
+                <div class="metric-card-top">
+
+                    <span class="metric-label">
+                        Revenue Impact
+                    </span>
+
+                    <span class="metric-icon">
+                        $
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="revenueImpact"
+                    class="metric-value"
+                >
+                    $0
+                </div>
+
+
+                <div class="metric-description">
+                    Estimated value generated
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================
+             CLIENTS SECTION
+             ================================= -->
+
+        <section
+            id="clients"
+            class="dashboard-section"
+        >
+
+
+            <div class="section-header">
+
+
+                <div>
+
+                    <h2>
+                        Your Clients
+                    </h2>
+
+                    <p>
+                        Manage your customers and review requests.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="addClientButton"
+                    class="btn btn-primary"
+                >
+
+                    + Add Client
+
+                </button>
+
+
+            </div>
+
+
+            <!-- Client Table -->
+
+            <div class="client-table-wrapper">
+
+                <table class="client-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Client
+                            </th>
+
+                            <th>
+                                Phone
+                            </th>
+
+                            <th>
+                                Service Status
+                            </th>
+
+                            <th>
+                                Review Status
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="clientTableBody"
+                    >
+
+                        <!-- JavaScript inserts clients here -->
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================
+             ANALYTICS SECTION
+             ================================= -->
+
+        <section
+            id="analytics"
+            class="dashboard-section"
+        >
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Analytics
+                    </h2>
+
+                    <p>
+                        Your review performance will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-placeholder">
+
+                <div class="analytics-placeholder-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Analytics coming soon
+                </h3>
+
+                <p>
+                    Once you start sending review requests,
+                    ReviewFlow will show your performance here.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- =========================================
+     ADD CLIENT MODAL
+     ========================================= -->
+
+<div
+    id="clientModal"
+    class="modal"
+>
+
+
+    <div class="modal-content">
+
+
+        <!-- Header -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>
+                    Add Client
+                </h2>
+
+                <p>
+                    Add a customer to ReviewFlow.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeClientModal"
+                class="modal-close"
+                aria-label="Close"
+            >
+                &times;
+            </button>
+
+
+        </div>
+
+
+        <!-- Form -->
+
+        <form
+            id="clientForm"
+        >
+
+
+            <!-- Name -->
+
+            <div class="form-group">
+
+                <label for="clientName">
+                    Client Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="clientName"
+                    name="name"
+                    placeholder="John Smith"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Phone -->
+
+            <div class="form-group">
+
+                <label for="clientPhone">
+                    Phone Number *
+                </label>
+
+                <input
+                    type="tel"
+                    id="clientPhone"
+                    name="phone"
+                    placeholder="+256 700 000000"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="clientEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="clientEmail"
+                    name="email"
+                    placeholder="john@example.com"
+                >
+
+            </div>
+
+
+            <!-- Service -->
+
+            <div class="form-group">
+
+                <label for="clientService">
+                    Service Provided *
+                </label>
+
+                <input
+                    type="text"
+                    id="clientService"
+                    name="service"
+                    placeholder="Plumbing repair"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Date -->
+
+            <div class="form-group">
+
+                <label for="serviceDate">
+                    Service Date *
+                </label>
+
+                <input
+                    type="date"
+                    id="serviceDate"
+                    name="serviceDate"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="modal-actions">
+
+
+                <button
+                    type="button"
+                    id="cancelAddClient"
+                    class="btn btn-secondary"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Add Client
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================
+     EDIT CLIENT MODAL
+     ========================================= -->
+
+<div
+    id="editClientModal"
+    class="modal"
+>
+
+
+    <div class="modal-content">
+
+
+        <!-- Header -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>
+                    Edit Client
+                </h2>
+
+                <p>
+                    Update this customer's information.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeEditClientModal"
+                class="modal-close"
+                aria-label="Close"
+            >
+                &times;
+            </button>
+
+
+        </div>
+
+
+        <!-- Edit Form -->
+
+        <form
+            id="editClientForm"
+        >
+
+
+            <!-- Hidden ID -->
+
+            <input
+                type="hidden"
+                id="editClientId"
+            >
+
+
+            <!-- Name -->
+
+            <div class="form-group">
+
+                <label for="editClientName">
+                    Client Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="editClientName"
+                    name="name"
+                    placeholder="John Smith"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Phone -->
+
+            <div class="form-group">
+
+                <label for="editClientPhone">
+                    Phone Number *
+                </label>
+
+                <input
+                    type="tel"
+                    id="editClientPhone"
+                    name="phone"
+                    placeholder="+256 700 000000"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="editClientEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="editClientEmail"
+                    name="email"
+                    placeholder="john@example.com"
+                >
+
+            </div>
+
+
+            <!-- Service -->
+
+            <div class="form-group">
+
+                <label for="editClientService">
+                    Service Provided *
+                </label>
+
+                <input
+                    type="text"
+                    id="editClientService"
+                    name="service"
+                    placeholder="Plumbing repair"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Date -->
+
+            <div class="form-group">
+
+                <label for="editServiceDate">
+                    Service Date *
+                </label>
+
+                <input
+                    type="date"
+                    id="editServiceDate"
+                    name="serviceDate"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="modal-actions">
+
+
+                <button
+                    type="button"
+                    id="cancelEditClient"
+                    class="btn btn-secondary"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Save Changes
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+     ========================================= -->
+
+<script src="js/auth.js"></script>
+
+<script src="js/storage.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>

@@ -1084,18 +1084,100 @@
                    --------------------------------- */
 
                 signupForm.addEventListener(
-                    "submit",
-                    function (event) {
+    "submit",
+    function (event) {
 
-                        event.preventDefault();
+        event.preventDefault();
 
 
-                        alert(
-                            "Signup form works! Real account creation will be connected next."
-                        );
+        // Get the information entered by the user
 
-                    }
-                );
+        const businessName =
+            document.getElementById("businessName").value.trim();
+
+
+        const ownerName =
+            document.getElementById("ownerName").value.trim();
+
+
+        const email =
+            document.getElementById("signupEmail").value.trim();
+
+
+        const password =
+            document.getElementById("signupPassword").value;
+
+
+        const plan =
+            selectedPlan.textContent.trim();
+
+
+        // Make sure all fields are completed
+
+        if (
+            !businessName ||
+            !ownerName ||
+            !email ||
+            !password
+        ) {
+
+            alert(
+                "Please complete all fields."
+            );
+
+            return;
+
+        }
+
+
+        // Check password length
+
+        if (password.length < 8) {
+
+            alert(
+                "Your password must be at least 8 characters."
+            );
+
+            return;
+
+        }
+
+
+        // Create the account
+
+        const result = signup({
+
+            businessName: businessName,
+
+            ownerName: ownerName,
+
+            email: email,
+
+            password: password,
+
+            plan: plan
+
+        });
+
+
+        // Show error if account creation failed
+
+        if (!result.success) {
+
+            alert(result.message);
+
+            return;
+
+        }
+
+
+        // Account created successfully.
+        // Send the user to the dashboard.
+
+        window.location.href = "dashboard.html";
+
+    }
+);
 
 
             }
@@ -1105,6 +1187,10 @@
     </script>
      
     <script src="js/auth.js"></script>
+
+    <script>
+        // your signup modal JavaScript goes here
+    </script>
 
 </body>
 
